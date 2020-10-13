@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <title>Quiz App</title>
+</head>
+<body>
+  <div class="container">
+
+    <!-- SIGN-IN -->
+    <section id="signIn" class="">
+      <div class="text-center flex-column">
+        <h1>Quiz App</h1>
+        <input type="text" id="username" placeholder="Enter a nickname" autocomplete="off">
+        <button id="enter-button" class="btn">Enter</button>
+      </div>
+    </section>
+
+    <!-- HOME -->
+    <section id="home" class="hide">
+      <div class="home flex-center flex-column text-center">
+        <h1 id="welcome-text" class="welcome"></h1>
+        <h2>Are you ready to start?</h2>
+        <button id="start-game-button" class="btn">Let's Start</button>
+        <button id="rules-button" class="btn" >Rules</button>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section id="game" class="hide">
+      <div class="game justify-center flex-column">
+        <h2 id="question" class="questions"></h2>
+        <div class="choices">
+          <div class="choice-container">
+            <p class="choice-prefix">A</p>
+            <p class="choice-text" data-number='1'>Choice 1</p>
+          </div>
+          <div class="choice-container">
+            <p class="choice-prefix">B</p>
+            <p class="choice-text" data-number='2'>Choice 2</p>
+          </div>
+          <div class="choice-container">
+            <p class="choice-prefix">C</p>
+            <p class="choice-text" data-number='3'>Choice 3</p>
+          </div>
+          <div class="choice-container">
+            <p class="choice-prefix">D</p>
+            <p class="choice-text" data-number='4'>Choice 4</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+  </div>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
