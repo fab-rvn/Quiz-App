@@ -38,25 +38,38 @@
         <div class="choices">
           <div class="choice-container">
             <p class="choice-prefix">A</p>
-            <p class="choice-text" data-number='1'>Choice 1</p>
+            <p class="choice-text" data-number='1'></p>
           </div>
           <div class="choice-container">
             <p class="choice-prefix">B</p>
-            <p class="choice-text" data-number='2'>Choice 2</p>
+            <p class="choice-text" data-number='2'></p>
           </div>
           <div class="choice-container">
             <p class="choice-prefix">C</p>
-            <p class="choice-text" data-number='3'>Choice 3</p>
+            <p class="choice-text" data-number='3'></p>
           </div>
           <div class="choice-container">
             <p class="choice-prefix">D</p>
-            <p class="choice-text" data-number='4'>Choice 4</p>
+            <p class="choice-text" data-number='4'></p>
           </div>
         </div>
       </div>
     </section>
 
-    
+    <!-- HIGHSCORES -->
+    <section id="game-over" class="hide">
+      <div class="final-scores flex-center flex-column">
+        <h1 id="final-text" class="text-center"></h1>
+        <p class="score-label">Your score is:</p>
+        <h1 id="final-score" class="score"></h1>
+        <div class="high-scores flex-center flex-column">
+          <h2>High Scores</h2>
+          <ul id="high-scores-list" class="score-list"></ul>
+          <button id="play-again-button" class="btn">Play Again</button>
+          <button id="go-home-button" class="btn">Go Home</button>
+        </div>
+      </div>
+    </section>
   </div>
   <script src="app.js" type="module"></script>
 </body>

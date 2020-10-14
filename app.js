@@ -1,21 +1,27 @@
 import questions from './questions.js';
 
 const signInSection = document.getElementById('signIn');
-const homeSection = document.getElementById('home');
-const gameSection = document.getElementById('game');
 const inputField = document.getElementById('username');
 const enterButton = document.getElementById('enter-button');
+const homeSection = document.getElementById('home');
 const welcomeTextElement = document.getElementById('welcome-text');
 const gameButton = document.getElementById('start-game-button');
+const gameSection = document.getElementById('game');
 const questionTextElement = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
+const gameOver = document.getElementById('game-over');
+const finalTextElement = document.getElementById('final-text');
+const scoreTextElement = document.getElementById('final-score');
+const highScoresList = document.getElementById('high-scores-list');
+const playAgainButton = document.getElementById('play-again-button');
+const goHomeButton = document.getElementById('go-home-button');
 
 let users = [];
 let user = {};
-let score = 0;
-let questionCounter = 0;
 let availableQuestions = [];
 let currentQuestion = {};
+let score = 0;
+let questionCounter = 0;
 let acpetingAnswer = false;
 
 const MAX_BONUS = 5;
@@ -33,6 +39,17 @@ gameButton.addEventListener('click', () => {
   gameSection.classList.toggle('hide');
   homeSection.classList.toggle('hide');
   startGame();
+})
+
+playAgainButton.addEventListener('click', () => {
+  gameSection.classList.toggle('hide');
+  gameOver.classList.toggle('hide');
+  startGame();
+})
+
+goHomeButton.addEventListener('click', () => {
+  signInSection.classList.toggle('hide');
+  gameOver.classList.toggle('hide');
 })
 
 function createUser() {
@@ -57,9 +74,22 @@ function startGame() {
 
 function nextQuestion() {
   if (questionCounter >= MAX_QUESTIONS || availableQuestions.length === 0) {
-    alert('Out of questions');
-    return;
+    user.score = score;
+
+    if (score >= 60) {
+      finalTextElement.innerText = `Well done ${user.name}`;
+      scoreTextElement.style.color = 'var(--correct)';
+    } else {
+      finalTextElement.innerText = `${user.name} You can do better than this..`;
+      scoreTextElement.style.color = 'var(--wrong)';
+    }
+
+    scoreTextElement.innerText = score;
+    highScoresList.innerHTML = users.map(user => `<li class="score-list-item">${user.name} - ${user.score}</li>`).join('');
+    gameOver.classList.toggle('hide');
+    gameSection.classList.toggle('hide');
   }
+  
   questionCounter++;
   // DISPLAY QUESTIONS
   const questionIndex = availableQuestions.length -1;
