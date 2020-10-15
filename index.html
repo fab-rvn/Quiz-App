@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Font -->
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <!-- GOOGLE FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
@@ -26,6 +28,12 @@
       <div class="home flex-center flex-column text-center">
         <h1 id="welcome-text" class="welcome"></h1>
         <h2>Are you ready to start?</h2>
+        <div id="rules" class="rules hide">
+          <h3>Rules</h3>
+          <i id="close-icon" class="far fa-times-circle fa-2x"></i>
+          <p>The quiz contains 20 questions, about <em>HTML</em>, <em>CSS</em> and <em>JS</em>. These are with multiple choice and with just <b>one correct answer</b>. It will show you if you answer was correct or not with a color animation. The next question appear just later on. At the end will be display your final score and the last recent scores.
+          </p>
+        </div>
         <button id="start-game-button" class="btn">Let's Start</button>
         <button id="rules-button" class="btn" >Rules</button>
       </div>
@@ -34,6 +42,15 @@
     <!-- GAME -->
     <section id="game" class="hide">
       <div class="game justify-center flex-column">
+        <div class="progress-bar">
+          <div class="steps">
+            <p class="step active">html</p>
+            <p class="step">css</p>
+            <p class="step">js</p>
+          </div>
+          <div id="progress-bar" class="progress-bar-full">
+          </div>
+        </div>
         <h2 id="question" class="questions"></h2>
         <div class="choices">
           <div class="choice-container">
@@ -63,7 +80,11 @@
         <p class="score-label">Your score is:</p>
         <h1 id="final-score" class="score"></h1>
         <div class="high-scores flex-center flex-column">
-          <h2>High Scores</h2>
+          <div class="row flex-center">
+            <h2>High Scores</h2>
+            <i id="sort-up-icon" class="fas fa-sort-up fa-2x"></i>
+            <i id="sort-down-icon" class="fas fa-sort-down fa-2x"></i>            
+          </div>
           <ul id="high-scores-list" class="score-list"></ul>
           <button id="play-again-button" class="btn">Play Again</button>
           <button id="go-home-button" class="btn">Go Home</button>
