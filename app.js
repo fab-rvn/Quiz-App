@@ -34,6 +34,11 @@ let acpetingAnswer = false;
 const MAX_BONUS = 5;
 const MAX_QUESTIONS = 20;
 
+
+window.onbeforeunload = function(e) {
+  return confirm('Confirm refresh');
+}
+
 enterButton.addEventListener('click', e => {
   e.preventDefault();
   createUser();
